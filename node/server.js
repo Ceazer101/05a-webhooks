@@ -15,7 +15,6 @@ app.post('/register', (req, res) => {
     registeredWebhooks.push({ eventType, url });
     console.log(`Webhook registered for event type: ${eventType} and URL: ${url}`);
     res.send('Webhook registered successfully');
-    console.log(registeredWebhooks);
 });
 
 // Unregister webhook
@@ -57,14 +56,4 @@ app.get('/ping', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-});
-
-// Endpoint to handle GitHub webhook payloads
-app.post('/webhook', (req, res) => {
-    const payload = req.body;
-    console.log('Received webhook payload:', payload);
-    // Here you can handle the payload received from GitHub
-    res.status(200).send('Webhook received successfully');
-    console.log("")
-    console.log("maybe not")
 });
